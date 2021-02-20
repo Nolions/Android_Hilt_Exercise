@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @Module
 @InstallIn(ActivityComponent::class)
-class Dog2 @Inject constructor() {
+class Pet @Inject constructor() {
     @Inject
     lateinit var dog: Dog
 
