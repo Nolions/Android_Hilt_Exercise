@@ -1,8 +1,8 @@
 package tw.nolions.hiltexercise
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -10,20 +10,22 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var hiltDog: DogHilt
+
     @Inject
     lateinit var dog: Dog
+
+    @Inject
+    lateinit var dog2: Dog2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Log.d("Hilt", "======MainActivity======")
-        inject()
-
-        dog.wow()
-    }
-
-    private fun inject() {
-        hiltDog.wow()
+        Log.d("Hilt", "======Activity======")
+        Log.d("Hilt", hiltDog.wow())
+        Log.d("Hilt", "======Constructor======")
+        Log.d("Hilt", dog.wow())
+        Log.d("Hilt", "======Module======")
+        Log.d("Hilt", dog2.wow())
     }
 }

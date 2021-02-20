@@ -13,13 +13,13 @@ import javax.inject.Inject
 class MainFragment : Fragment() {
 
     @Inject
-    lateinit var hiltDog: DogHilt
+    lateinit var dog: DogHilt
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Log.d("Hilt", "======MainFragment======")
-        inject()
+        Log.d("Hilt", "======Fragment======")
+        Log.d("Hilt", dog.wow())
     }
 
     override fun onCreateView(
@@ -28,9 +28,5 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_main, container, false)
-    }
-
-    private fun inject() {
-        hiltDog.wow()
     }
 }

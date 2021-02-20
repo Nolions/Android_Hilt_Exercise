@@ -13,11 +13,7 @@ class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Log.d("Hilt", "======BaseApplication======")
-        inject()
-    }
-
-    private fun inject() {
-        hiltDog.wow()
+        Log.d("Hilt", "======Application======")
+        Log.d("Hilt", hiltDog.wow())
     }
 }

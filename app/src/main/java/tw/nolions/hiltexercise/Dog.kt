@@ -8,7 +8,6 @@ class Dog @Inject constructor(
 ) {
 
     fun wow(): String {
-        Log.d("Hilt", "======Dog======")
         return dog.wow()
     }
 }
