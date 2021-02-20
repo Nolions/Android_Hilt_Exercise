@@ -10,6 +10,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var hiltDog: DogHilt
+    @Inject
     lateinit var dog: Dog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,15 +19,11 @@ class MainActivity : AppCompatActivity() {
 
         Log.d("Hilt", "======MainActivity======")
         inject()
-        noInject()
+
+        dog.wow()
     }
 
     private fun inject() {
         hiltDog.wow()
-    }
-
-    private fun noInject() {
-        dog = Dog()
-        dog.wow()
     }
 }

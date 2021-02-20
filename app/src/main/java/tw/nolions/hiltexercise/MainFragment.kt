@@ -14,14 +14,12 @@ class MainFragment : Fragment() {
 
     @Inject
     lateinit var hiltDog: DogHilt
-    lateinit var dog: Dog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         Log.d("Hilt", "======MainFragment======")
         inject()
-        noInject()
     }
 
     override fun onCreateView(
@@ -34,10 +32,5 @@ class MainFragment : Fragment() {
 
     private fun inject() {
         hiltDog.wow()
-    }
-
-    private fun noInject() {
-        dog = Dog()
-        dog.wow()
     }
 }
