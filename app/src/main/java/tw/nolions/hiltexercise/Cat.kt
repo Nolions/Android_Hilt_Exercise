@@ -19,12 +19,12 @@ class CatImpl @Inject constructor() : Animal {
 
 @Module
 @InstallIn(ActivityComponent::class)
-abstract class CatModule {
+abstract class CatAbstract {
     @Binds
     abstract fun bindAnimal(cat: CatImpl): Animal
 }
 
-class Cat @Inject constructor(): CatModule() {
+class Cat @Inject constructor(): CatAbstract() {
     override fun bindAnimal(cat: CatImpl): Animal {
         return cat
     }
