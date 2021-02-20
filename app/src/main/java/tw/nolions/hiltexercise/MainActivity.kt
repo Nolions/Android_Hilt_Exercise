@@ -20,6 +20,14 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var mCat: Cat
 
+    @BindRabbitAnimal
+    @Inject
+    lateinit var rabbitAnimal: Animal
+
+    @BindCatAnimal
+    @Inject
+    lateinit var catAnimal: Animal
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,13 +42,23 @@ class MainActivity : AppCompatActivity() {
         Log.d("Hilt", pet.wow())
 
         bind()
+        qualifier()
     }
 
     private fun bind() {
         Log.d("Hilt", "======Bind======")
 
         val cat = mCat.bindAnimal(CatImpl())
-        Log.d("Hilt", "animal type is ${cat.wow()}")
-        Log.d("Hilt", "animal wow is ${cat.wow()}")
+        Log.d("Hilt", "${cat.wow()}'s wow is ${cat.wow()}")
+    }
+
+    private fun qualifier() {
+        Log.d("Hilt", "======Qualifier======")
+
+        Log.d("Hilt", "======cat======")
+        Log.d("Hilt", "${catAnimal.type()}'s wow is ${catAnimal.wow()}")
+
+        Log.d("Hilt", "======rabbit======")
+        Log.d("Hilt", "${rabbitAnimal.type()}'s wow is ${rabbitAnimal.wow()}")
     }
 }
